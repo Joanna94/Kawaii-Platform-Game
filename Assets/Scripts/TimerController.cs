@@ -19,10 +19,13 @@ public class TimerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        timer += (Time.deltaTime * timerSpeed);
-        minutes = (int)(timer / 60);
-        seconds = (int)(timer % 60);
+        if (GameManager.instance.currentGameState == GameState.GS_GAME)
+        {
+            timer += (Time.deltaTime * timerSpeed);
+            minutes = (int)(timer / 60);
+            seconds = (int)(timer % 60);
 
-        timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+            timerText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        }
 	}
 }

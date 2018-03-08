@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour {
 
     public GameState currentGameState;
     public Canvas inGameCanvas;
+    public Canvas pauseMenuCanvas;
     public static GameManager instance;
     public Text bronzeCoinsText;
     public Text silverCoinsText;
@@ -44,13 +46,19 @@ public class GameManager : MonoBehaviour {
         silverCoinsText.text = silverCoins.ToString();
         goldCoinsText.text = goldCoins.ToString();
         totalScoreText.text = totalScore.ToString();
+
+        currentGameState = GameState.GS_GAME;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(currentGameState.Equals(GameState.GS_PAUSEMENU) && Input.GetKeyDown(KeyCode.S))
+		if(currentGameState.Equals(GameState.GS_PAUSEMENU) && Input.GetKeyDown(KeyCode.Escape))
         {
             InGame();
+        }
+        else if (currentGameState.Equals(GameState.GS_GAME) && Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu();
         }
     }
 
@@ -66,6 +74,7 @@ public class GameManager : MonoBehaviour {
     {
         currentGameState = newGameState;
         inGameCanvas.enabled = (newGameState == GameState.GS_GAME);
+        pauseMenuCanvas.enabled = (newGameState == GameState.GS_PAUSEMENU);
     }
 
     void InGame()
@@ -76,7 +85,7 @@ public class GameManager : MonoBehaviour {
     void GameOver()
     {
         SetGameState(GameState.GS_GAME_OVER);
-        PauseMenu(); //???
+        PauseMenu();
     }
 
     void PauseMenu()
@@ -89,46 +98,61 @@ public class GameManager : MonoBehaviour {
         SetGameState(GameState.GS_LEVELCOMPLETED);
     }
 
-    public void addBronzeCoins()
+    public void AddBronzeCoins()
     {
         bronzeCoins++;
         bronzeCoinsText.text = bronzeCoins.ToString();
     }
 
-    public void addSilverCoins()
+    public void AddSilverCoins()
     {
         silverCoins++;
         silverCoinsText.text = silverCoins.ToString();
     }
 
-    public void addGoldCoins()
+    public void AddGoldCoins()
     {
         goldCoins++;
         goldCoinsText.text = goldCoins.ToString();
     }
 
-    public void increaseTotalScore(int number)
+    public void IncreaseTotalScore(int number)
     {
         totalScore += number;
         totalScoreText.text = totalScore.ToString();
     }
 
-    public void addKeys()
+    public void AddKeys()
     {
         keysTab[keys++].color = Color.white;
     }
 
-    public void addLives()
+    public void AddLives()
     {
         if (lives < 3)
             livesTab[lives++].color = Color.white;
     }
 
-    public void subLives()
+    public void SubLives()
     {
         if(lives > 0)
         {
             livesTab[--lives].color = Color.grey;
         }
+    }
+
+    public void OnResumeButtonClick()
+    {
+        InGame();
+    }
+
+    public void OnRestartButtonClick()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void OnExitButtonClick()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

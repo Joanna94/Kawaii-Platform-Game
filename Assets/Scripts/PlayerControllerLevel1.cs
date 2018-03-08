@@ -97,7 +97,7 @@ public class PlayerControllerLevel1 : MonoBehaviour {
             if (this.transform.position.y < startFallingPosition - 20)
             {
                 this.transform.position = startPosition;
-                GameManager.instance.subLives();
+                GameManager.instance.SubLives();
             }
         }
     }
@@ -115,37 +115,37 @@ public class PlayerControllerLevel1 : MonoBehaviour {
     {
         if (other.CompareTag("Key"))
         {
-            GameManager.instance.addKeys();
+            GameManager.instance.AddKeys();
         }
         else if (other.CompareTag("Carrot"))
         {
-            GameManager.instance.addLives();
+            GameManager.instance.AddLives();
         }
         else if (other.CompareTag("BronzeCoin"))
         {
-            GameManager.instance.addBronzeCoins();
-            GameManager.instance.increaseTotalScore((int)Points.P_BRONZECOINS);
+            GameManager.instance.AddBronzeCoins();
+            GameManager.instance.IncreaseTotalScore((int)Points.P_BRONZECOINS);
         }
         else if (other.CompareTag("SilverCoin"))
         {
-            GameManager.instance.addSilverCoins();
-            GameManager.instance.increaseTotalScore((int)Points.P_SILVERCOINS);
+            GameManager.instance.AddSilverCoins();
+            GameManager.instance.IncreaseTotalScore((int)Points.P_SILVERCOINS);
         }
         else if (other.CompareTag("GoldCoin"))
         {
-            GameManager.instance.addGoldCoins();
-            GameManager.instance.increaseTotalScore((int)Points.P_GOLDCOINS);
+            GameManager.instance.AddGoldCoins();
+            GameManager.instance.IncreaseTotalScore((int)Points.P_GOLDCOINS);
         }
         else if (other.CompareTag("SpikeMan"))
         {
             if (this.transform.position.y < other.transform.position.y + killOffset)
             {
                 this.transform.position = startPosition;
-                GameManager.instance.subLives();
+                GameManager.instance.SubLives();
             }
             else
             {
-                GameManager.instance.increaseTotalScore((int)Points.P_SPIKEMAN);
+                GameManager.instance.IncreaseTotalScore((int)Points.P_SPIKEMAN);
             }
         }
   
@@ -158,8 +158,7 @@ public class PlayerControllerLevel1 : MonoBehaviour {
         if (collision.gameObject.CompareTag("MovingPlatform"))
         {
             this.transform.parent = collision.transform;
-        }
-            
+        }     
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -167,7 +166,6 @@ public class PlayerControllerLevel1 : MonoBehaviour {
         if (collision.gameObject.CompareTag("MovingPlatform"))
         {
             this.transform.parent = null;
-        }
-            
+        }   
     }
 }
