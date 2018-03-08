@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public Text silverCoinsText;
     public Text goldCoinsText;
     public Text totalScoreText;
+    public int keys = 0;
     public Image[] keysTab;
     public Image[] livesTab;
 
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour {
     private int silverCoins = 0;
     private int goldCoins = 0;
     private int totalScore = 0;
-    private int keys = 0;
+    
     private int lives = 3;
 
     // Use this for initialization
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour {
         SetGameState(GameState.GS_PAUSEMENU);
     }
 
-    void LevelCompleted()
+    public void LevelCompleted()
     {
         SetGameState(GameState.GS_LEVELCOMPLETED);
     }

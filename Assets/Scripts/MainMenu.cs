@@ -25,4 +25,9 @@ public class MainMenu : MonoBehaviour {
     {
         StartCoroutine(StartGame("Level1"));
     }
+
+    public void OnExitButtonPressed()
+    {
+        Application.Quit();
+    }
 }

@@ -121,6 +121,11 @@ public class PlayerControllerLevel1 : MonoBehaviour {
         {
             GameManager.instance.AddLives();
         }
+        else if (other.CompareTag("Finish"))
+        {
+            if (GameManager.instance.keys == 3)
+                GameManager.instance.LevelCompleted();
+        }
         else if (other.CompareTag("BronzeCoin"))
         {
             GameManager.instance.AddBronzeCoins();
@@ -148,9 +153,12 @@ public class PlayerControllerLevel1 : MonoBehaviour {
                 GameManager.instance.IncreaseTotalScore((int)Points.P_SPIKEMAN);
             }
         }
-  
-        if(!other.CompareTag("SpikeMan"))
+
+        if (!other.CompareTag("SpikeMan"))
             other.gameObject.SetActive(false);
+
+        if (other.CompareTag("Finish"))
+            other.gameObject.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
