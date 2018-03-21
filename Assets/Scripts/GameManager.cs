@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     public GameState currentGameState;
     public Canvas inGameCanvas;
     public Canvas pauseMenuCanvas;
+    public Canvas levelCompletedCanvas;
     public static GameManager instance;
     public Text bronzeCoinsText;
     public Text silverCoinsText;
@@ -76,6 +77,7 @@ public class GameManager : MonoBehaviour {
         currentGameState = newGameState;
         inGameCanvas.enabled = (newGameState == GameState.GS_GAME);
         pauseMenuCanvas.enabled = (newGameState == GameState.GS_PAUSEMENU);
+        levelCompletedCanvas.enabled = (newGameState == GameState.GS_LEVELCOMPLETED);
     }
 
     void InGame()

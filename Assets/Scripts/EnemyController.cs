@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
     public float moveSpeed = 3f;
-    public float startPositionX;
     public float xMax = 5f;
     public float xMin = 5f;
     public Animator animator;
@@ -13,6 +12,7 @@ public class EnemyController : MonoBehaviour {
     private bool isFacingRight = true;
     private bool isMovingRight = true;
     private float killOffset = 0.7f;
+    private float startPositionX;
 
     // Use this for initialization
     void Start () {

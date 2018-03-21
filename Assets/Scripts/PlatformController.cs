@@ -8,15 +8,15 @@ public class PlatformController : MonoBehaviour {
     public float xMax = 5;
     public float yMax = 0;
     public bool isMovingHorizontal = true;
-
+    
     private float startPositionX;
     private float startPositionY;
-    private bool isMovingRight = true;
     private bool isMovingUp = true;
+    private bool isMovingRight = true;
 
-    
+
     // Use this for initialization
-	void Start () {
+    void Start () {
         startPositionX = this.transform.position.x;
         startPositionY = this.transform.position.y;
 	}
