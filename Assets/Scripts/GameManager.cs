@@ -158,4 +158,9 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void Level2ButtonClick()
+    {
+        SceneManager.LoadScene("Level2");
+    }
 }
