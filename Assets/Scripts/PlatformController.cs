@@ -14,15 +14,20 @@ public class PlatformController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        startPositionX = currentXPosition();
+        setStartXPosition();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Moving();
+        Move();
 	}
 
-    void Moving()
+    void setStartXPosition()
+    {
+        startPositionX = currentXPosition();
+    }
+
+    void Move()
     {
 
         if (IsMovingInRange())

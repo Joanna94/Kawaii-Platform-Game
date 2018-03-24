@@ -16,38 +16,66 @@ public class EnemyController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        startPositionX = this.transform.position.x;
-	}
+        setStartXPosition();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
         if (!animator.GetBool("isDead"))
         {
-            if (isMovingRight)
-            {
-                if (this.transform.position.x < startPositionX + xMax)
-                    MoveRight();
-                else
-                {
-                    isMovingRight = false;
-                    MoveLeft();
-                    Flip();
-                }
-            }
-            else
-            {
-                if (this.transform.position.x > startPositionX - xMin)
-                    MoveLeft();
-                else
-                {
-                    isMovingRight = true;
-                    MoveRight();
-                    Flip();
-                }
-            }
+            Move();
         }
 	}
+
+    void Move()
+    {
+        if (IsMovingInRange())
+        {
+            if (isMovingRight)
+                MoveRight();
+            else
+                MoveLeft();
+        }
+        else
+            changeDirectionOfMoving();
+    }
+
+    void setStartXPosition()
+    {
+        startPositionX = currentXPosition();
+    }
+
+    float currentXPosition()
+    {
+        return this.transform.position.x;
+    }
+
+    bool IsMovingInRange()
+    {
+        if (isMovingRight && currentXPosition() < startPositionX + xMax)
+            return true;
+        else if (!isMovingRight && currentXPosition() > startPositionX - xMin)
+            return true;
+
+        return false;
+    }
+
+    void changeDirectionOfMoving()
+    {
+        if (isMovingRight)
+        {
+            isMovingRight = false;
+            MoveLeft();
+            Flip();
+        }
+        else
+        {
+            isMovingRight = true;
+            MoveRight();
+            Flip();
+        }
+    }
 
     void Flip()
     {
