@@ -665,6 +665,30 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 183489050}
+--- !u!1 &212942952 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1363738431751690, guid: a62b8d957e4fbf042994900bf8e55196,
+    type: 2}
+  m_PrefabInternal: {fileID: 441746250}
+--- !u!4 &212942953 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196,
+    type: 2}
+  m_PrefabInternal: {fileID: 441746250}
+--- !u!114 &212942954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212942952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e13ad5c2f23f3747ad1080760343862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  xMax: 10
+  xMin: 0
 --- !u!1 &214290685
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +767,56 @@ Transform:
   m_PrefabParentObject: {fileID: 4636256409641004, guid: d776f0be60aa1d04cb2c5e6eb82baec7,
     type: 2}
   m_PrefabInternal: {fileID: 711052047}
+--- !u!1001 &239620855
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 915556802}
+    m_Modifications:
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 34.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363738431751690, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_Name
+      value: GroundGrassSmallBrokenMoving (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363738431751690, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_TagString
+      value: MovingPlatform
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &342159146
 Prefab:
   m_ObjectHideFlags: 0
@@ -1114,6 +1188,56 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 438886651}
+--- !u!1001 &441746250
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 915556802}
+    m_Modifications:
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363738431751690, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_Name
+      value: GroundGrassSmallBrokenMoving
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363738431751690, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+      propertyPath: m_TagString
+      value: MovingPlatform
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a62b8d957e4fbf042994900bf8e55196, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &464423113 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4636256409641004, guid: d776f0be60aa1d04cb2c5e6eb82baec7,
@@ -1804,6 +1928,8 @@ Transform:
   - {fileID: 884349275}
   - {fileID: 127445821}
   - {fileID: 464423113}
+  - {fileID: 212942953}
+  - {fileID: 1282982905}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2048,6 +2174,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7176d2eb1fa6ff341a3f5664eaf84426, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1282982904 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1363738431751690, guid: a62b8d957e4fbf042994900bf8e55196,
+    type: 2}
+  m_PrefabInternal: {fileID: 239620855}
+--- !u!4 &1282982905 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4937667481217184, guid: a62b8d957e4fbf042994900bf8e55196,
+    type: 2}
+  m_PrefabInternal: {fileID: 239620855}
+--- !u!114 &1282982906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1282982904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e13ad5c2f23f3747ad1080760343862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  xMax: 0
+  xMin: 10
 --- !u!1 &1304682597
 GameObject:
   m_ObjectHideFlags: 0
