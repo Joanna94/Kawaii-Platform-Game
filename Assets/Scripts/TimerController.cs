@@ -7,14 +7,14 @@ public class TimerController : MonoBehaviour {
 
     public Text timerText;
     public float timerSpeed = 1f;
+    public static float timer = 0;
 
-    private float timer = 0;
     private float seconds = 0;
     private float minutes = 0;
     
     // Use this for initialization
 	void Start () {
-		
+        timer = 0;
 	}
 	
 	// Update is called once per frame

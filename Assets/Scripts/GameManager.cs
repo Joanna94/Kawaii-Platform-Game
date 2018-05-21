@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour {
     private int silverCoins = 0;
     private int goldCoins = 0;
     private int totalScore = 0;
-    
     private int lives = 3;
 
     // Use this for initialization
@@ -62,6 +61,21 @@ public class GameManager : MonoBehaviour {
         {
             PauseMenu();
         }
+
+        if(lives == 0)
+            GameOver();
+
+        if (currentGameState.Equals(GameState.GS_LEVELCOMPLETED))
+        {
+            AddPointsToTotalScoreForTime();
+
+            if (SceneManager.GetSceneByName("Level1").isLoaded)
+                MainMenu.level1Score = totalScore;
+            else if(SceneManager.GetSceneByName("Level2").isLoaded)
+                MainMenu.level2Score = totalScore;
+
+        }
+        
     }
 
     private void Awake()
@@ -70,6 +84,13 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < keysTab.Length; i++)
             keysTab[i].color = Color.grey;
+    }
+
+    public int TotalScore
+    {
+        get {
+            return totalScore;
+        }
     }
 
     void SetGameState(GameState newGameState)
@@ -162,5 +183,14 @@ public class GameManager : MonoBehaviour {
     public void Level2ButtonClick()
     {
         SceneManager.LoadScene("Level2");
+    }
+
+    private void AddPointsToTotalScoreForTime()
+    {
+        int extraPoints = - (int)(TimerController.timer * 0.5) + 300;
+        if (extraPoints < 0)
+            extraPoints = 0;
+
+        IncreaseTotalScore(extraPoints);
     }
 }

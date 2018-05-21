@@ -11,6 +11,7 @@ TagManager:
   - Carrot
   - Key
   - MovingPlatform
+  - WingMan
   layers:
   - Default
   - TransparentFX
