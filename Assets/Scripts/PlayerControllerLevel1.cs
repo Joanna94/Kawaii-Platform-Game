@@ -10,7 +10,12 @@ public class PlayerControllerLevel1 : MonoBehaviour {
     public Animator animator;
     public bool isWalking = false;
 
+    public AudioClip enemyKillSound;
+    public AudioClip deathSound;
+    public AudioClip itemSound;
+    public AudioClip winSound;
 
+    private AudioSource source;
     private Rigidbody2D rigidBody;
     private bool isFacingRight = true;
     private float killOffset = 0.5f;
@@ -67,6 +72,8 @@ public class PlayerControllerLevel1 : MonoBehaviour {
     {
         rigidBody = GetComponent<Rigidbody2D>();
         startPosition = this.transform.position;
+
+        source = GetComponent<AudioSource>();
     }
 
     private bool IsGrounded()
@@ -98,6 +105,7 @@ public class PlayerControllerLevel1 : MonoBehaviour {
             {
                 this.transform.position = startPosition;
                 GameManager.instance.SubLives();
+                source.PlayOneShot(deathSound, 1f);
             }
         }
     }
@@ -116,30 +124,38 @@ public class PlayerControllerLevel1 : MonoBehaviour {
         if (other.CompareTag("Key"))
         {
             GameManager.instance.AddKeys();
+            source.PlayOneShot(itemSound, 1f);
         }
         else if (other.CompareTag("Carrot"))
         {
             GameManager.instance.AddLives();
+            source.PlayOneShot(itemSound, 1f);
         }
         else if (other.CompareTag("Finish"))
         {
             if (GameManager.instance.keys == 3)
+            {
                 GameManager.instance.LevelCompleted();
+                source.PlayOneShot(winSound, 1f);
+            }
         }
         else if (other.CompareTag("BronzeCoin"))
         {
             GameManager.instance.AddBronzeCoins();
             GameManager.instance.IncreaseTotalScore((int)Points.P_BRONZECOINS);
+            source.PlayOneShot(itemSound, 1f);
         }
         else if (other.CompareTag("SilverCoin"))
         {
             GameManager.instance.AddSilverCoins();
             GameManager.instance.IncreaseTotalScore((int)Points.P_SILVERCOINS);
+            source.PlayOneShot(itemSound, 1f);
         }
         else if (other.CompareTag("GoldCoin"))
         {
             GameManager.instance.AddGoldCoins();
             GameManager.instance.IncreaseTotalScore((int)Points.P_GOLDCOINS);
+            source.PlayOneShot(itemSound, 1f);
         }
         else if (other.CompareTag("SpikeMan"))
         {
@@ -147,10 +163,12 @@ public class PlayerControllerLevel1 : MonoBehaviour {
             {
                 this.transform.position = startPosition;
                 GameManager.instance.SubLives();
+                source.PlayOneShot(deathSound, 1f);
             }
             else
             {
                 GameManager.instance.IncreaseTotalScore((int)Points.P_SPIKEMAN);
+                source.PlayOneShot(enemyKillSound, 1f);
             }
         }
 

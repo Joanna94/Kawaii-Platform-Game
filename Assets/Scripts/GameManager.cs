@@ -64,17 +64,6 @@ public class GameManager : MonoBehaviour {
 
         if(lives == 0)
             GameOver();
-
-        if (currentGameState.Equals(GameState.GS_LEVELCOMPLETED))
-        {
-            AddPointsToTotalScoreForTime();
-
-            if (SceneManager.GetSceneByName("Level1").isLoaded)
-                MainMenu.level1Score = totalScore;
-            else if(SceneManager.GetSceneByName("Level2").isLoaded)
-                MainMenu.level2Score = totalScore;
-
-        }
         
     }
 
@@ -86,19 +75,23 @@ public class GameManager : MonoBehaviour {
             keysTab[i].color = Color.grey;
     }
 
-    public int TotalScore
-    {
-        get {
-            return totalScore;
-        }
-    }
-
     void SetGameState(GameState newGameState)
     {
         currentGameState = newGameState;
         inGameCanvas.enabled = (newGameState == GameState.GS_GAME);
         pauseMenuCanvas.enabled = (newGameState == GameState.GS_PAUSEMENU);
         levelCompletedCanvas.enabled = (newGameState == GameState.GS_LEVELCOMPLETED);
+
+       // if (newGameState.Equals(GameState.GS_LEVELCOMPLETED))
+       //     totalScore += CountExtraPointsForTime();
+
+        if (newGameState.Equals(GameState.GS_LEVELCOMPLETED) || newGameState.Equals(GameState.GS_GAME_OVER))
+        {
+            if (SceneManager.GetSceneByName("Level1").isLoaded)
+                MainMenu.level1Score = totalScore;
+            else if (SceneManager.GetSceneByName("Level2").isLoaded)
+                MainMenu.level2Score = totalScore;
+        }
     }
 
     void InGame()
@@ -185,12 +178,12 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Level2");
     }
 
-    private void AddPointsToTotalScoreForTime()
+    private int CountExtraPointsForTime()
     {
         int extraPoints = - (int)(TimerController.timer * 0.5) + 300;
         if (extraPoints < 0)
             extraPoints = 0;
 
-        IncreaseTotalScore(extraPoints);
+        return extraPoints;
     }
 }
