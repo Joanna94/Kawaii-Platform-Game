@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4571639751867818}
   - component: {fileID: 212662649050323454}
   - component: {fileID: 58627223173476870}
+  - component: {fileID: 95177195846163262}
   m_Layer: 0
   m_Name: Bronze_coin
   m_TagString: BronzeCoin
@@ -56,6 +57,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.42
+--- !u!95 &95177195846163262
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1027851275916492}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2b2168c7a6d2d124ea558c501134a22f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &212662649050323454
 SpriteRenderer:
   m_ObjectHideFlags: 1
